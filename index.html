@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harini M | Electronics & Communication Engineer</title>
+    <meta name="description" content="Portfolio of Harini M, an Electronics and Communication Engineering student focused on Embedded Systems, IoT, and edge AI." />
+    <meta name="theme-color" content="#07111f" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #07111f;
+        --surface: rgba(255, 255, 255, 0.08);
+        --surface-strong: rgba(255, 255, 255, 0.14);
+        --text: #f7f8fc;
+        --muted: #a8b2cf;
+        --accent: #6ee7f9;
+        --accent-2: #8b5cf6;
+        --border: rgba(255, 255, 255, 0.16);
+        --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(110, 231, 249, 0.2), transparent 24%),
+          radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.16), transparent 28%),
+          var(--bg);
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+
+      body::before,
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      body::before {
+        background-image:
+          linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+        background-size: 32px 32px;
+        mask-image: linear-gradient(to bottom, rgba(0,0,0,0.85), transparent 90%);
+      }
+
+      body::after {
+        background: radial-gradient(circle at 15% 20%, rgba(110, 231, 249, 0.12), transparent 20%),
+          radial-gradient(circle at 85% 80%, rgba(139, 92, 246, 0.14), transparent 24%);
+      }
+
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; display: block; }
+      ul { padding-left: 18px; }
+
+      .container {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(16px);
+        background: rgba(7, 17, 31, 0.78);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 0;
+      }
+
+      .brand {
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 0.95rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 18px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .nav-links a:hover { color: var(--text); }
+
+      .hero { padding: 64px 0 48px; }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 24px;
+        align-items: center;
+      }
+
+      .hero-card, .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        border-radius: 24px;
+        backdrop-filter: blur(18px);
+        position: relative;
+        overflow: hidden;
+        transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+      }
+
+      .hero-card:hover, .card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(110, 231, 249, 0.4);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+      }
+
+      .hero-card::before, .card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%);
+        transform: translateX(-120%);
+        transition: transform 0.7s ease;
+        pointer-events: none;
+      }
+
+      .hero-card:hover::before, .card:hover::before {
+        transform: translateX(120%);
+      }
+
+      .hero-card { padding: 36px; }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(110, 231, 249, 0.14);
+        color: var(--accent);
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        line-height: 1.1;
+        margin: 0 0 14px;
+      }
+
+      .hero p { color: var(--muted); margin: 0 0 20px; }
+
+      .btn-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 16px;
+        border-radius: 999px;
+        font-weight: 600;
+        transition: transform 200ms ease, background 200ms ease, box-shadow 200ms ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(110, 231, 249, 0.16);
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #03111f;
+      }
+      .btn-secondary {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid var(--border);
+      }
+
+      .profile-card {
+        padding: 24px;
+        text-align: center;
+      }
+
+      .avatar {
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+        margin: 0 auto 18px;
+        border: 3px solid rgba(255,255,255,0.14);
+        background: linear-gradient(135deg, rgba(110,231,249,0.42), rgba(139,92,246,0.35));
+        display: grid;
+        place-items: center;
+        font-size: 3rem;
+        font-weight: 800;
+      }
+
+      section { padding: 28px 0; }
+      .section-title { margin-bottom: 18px; }
+      .section-title h2 {
+        margin: 0;
+        font-size: 1.25rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .intro-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.08);
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-bottom: 14px;
+      }
+
+      .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+      .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      .interest-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+      .card { padding: 22px; }
+      .card h3 { margin-top: 0; margin-bottom: 8px; }
+      .muted { color: var(--muted); }
+
+      .chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .chip {
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.08);
+        color: var(--text);
+        font-size: 0.9rem;
+      }
+
+      .timeline { border-left: 2px solid rgba(255,255,255,0.12); padding-left: 16px; }
+      .timeline-item { margin-bottom: 16px; }
+      .timeline-item strong { display: block; margin-bottom: 6px; }
+      .timeline-item span { color: var(--accent); font-size: 0.9rem; }
+
+      .project-card { display: flex; flex-direction: column; gap: 10px; }
+      .project-card .highlight {
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      .contact-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      .contact-links { display: flex; gap: 12px; flex-wrap: wrap; }
+      .contact-links a {
+        padding: 10px 13px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.08);
+      }
+
+      .contact-list { display: grid; gap: 10px; margin-top: 10px; }
+      .contact-list a { color: var(--accent); }
+
+      .interest-card h3 { margin-bottom: 8px; }
+
+      footer {
+        padding: 28px 0 38px;
+        color: var(--muted);
+        text-align: center;
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 860px) {
+        .hero-grid, .grid-2, .grid-3, .project-grid, .interest-grid { grid-template-columns: 1fr; }
+      }
+
+      @media (max-width: 560px) {
+        .nav .container { flex-direction: column; gap: 10px; }
+        .nav-links { flex-wrap: wrap; justify-content: center; }
+        .hero-card, .profile-card, .card { padding: 18px; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="container">
+        <a class="brand" href="#home">Home</a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#education">Education</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#interests">Interests</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <header id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <div class="eyebrow">⚡ Embedded Systems • IoT • Edge AI</div>
+          <h1>Hi, I’m <span style="color: var(--accent);">Harini M</span></h1>
+          <p>— building intelligent, hardware-connected solutions with a strong engineering foundation. I am focused on embedded firmware development, IoT-based sensing systems, and real-time technology solutions. My work combines electronics, software, and practical design to create efficient and impactful applications.</p>
+          <div class="chip-row">
+            <span class="chip">Embedded Firmware</span>
+            <span class="chip">Sensor Integration</span>
+            <span class="chip">Real-Time Systems</span>
+          </div>
+          <div class="btn-row" style="margin-top: 18px;">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-secondary" href="#contact">Contact Me</a>
+          </div>
+        </div>
+
+        <div class="profile-card hero-card">
+          <img src="WhatsApp Image 2026-02-18 at 9.58.56 PM.jpeg" alt="Harini M" style="width: 300px; height: 300px; object-fit: cover; border-radius: 50%; margin: 0 auto 18px; border: 3px solid rgba(255,255,255,0.14);" />
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="about">
+        <div class="container grid-2">
+          <div class="card">
+            <div class="section-title">
+              <h2>🧠 About Me</h2>
+            </div>
+            <p class="muted">I am an Electronics and Communication Engineering student with a strong interest in embedded systems, IoT sensor integration, and edge AI for real-time applications. My academic and project experience has helped me build solutions that connect hardware, sensors, cloud platforms, and intelligent interfaces.</p>
+            <p class="muted">I enjoy working on systems that solve real-world problems with efficiency, reliability, and innovation. I am particularly motivated by projects that bridge electronics and software to deliver meaningful impact.</p>
+          </div>
+
+          <div class="card">
+            <div class="section-title">
+              <h2>Quick Highlights</h2>
+            </div>
+            <ul class="muted">
+              <li>B.E. Electronics and Communication Engineering, Kongu Engineering College</li>
+              <li>CGPA: 8.94 till 6th semester</li>
+              <li>HSC: 93% and SSLC: 95%</li>
+              <li>Shortlisted for ThingQbator Innovation Program by NASSCOM Foundation</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="education">
+        <div class="container">
+          <div class="section-title">
+            <h2>Education</h2>
+          </div>
+          <div class="card">
+            <div class="timeline">
+              <div class="timeline-item">
+                <strong>B.E. Electronics and Communication Engineering</strong>
+                <span>Kongu Engineering College • 2023 – Present</span>
+                <p class="muted">CGPA: 8.94 till 6th semester</p>
+              </div>
+              <div class="timeline-item">
+                <strong>Higher Secondary Certificate</strong>
+                <span>HSC • 93%</span>
+              </div>
+              <div class="timeline-item">
+                <strong>Secondary School Leaving Certificate</strong>
+                <span>SSLC • 95%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="container">
+          <div class="section-title">
+            <h2>Technical Skills</h2>
+          </div>
+          <div class="grid-3">
+            <div class="card">
+              <h3>Programming</h3>
+              <div class="chip-row">
+                <span class="chip">C</span>
+                <span class="chip">Embedded C</span>
+                <span class="chip">C++</span>
+                <span class="chip">Java</span>
+                <span class="chip">Python</span>
+                <span class="chip">HTML</span>
+                <span class="chip">CSS</span>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Tools & Platforms</h3>
+              <div class="chip-row">
+                <span class="chip">MATLAB</span>
+                <span class="chip">VS Code</span>
+                <span class="chip">Eclipse</span>
+                <span class="chip">Proteus</span>
+                <span class="chip">ModelSim</span>
+                <span class="chip">PIC C Compiler</span>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Areas of Interest</h3>
+              <div class="chip-row">
+                <span class="chip">Embedded Firmware</span>
+                <span class="chip">IoT Sensor Integration</span>
+                <span class="chip">Edge AI</span>
+                <span class="chip">Real-Time Systems</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="container">
+          <div class="section-title">
+            <h2>Projects</h2>
+          </div>
+          <div class="project-grid">
+            <div class="card project-card">
+              <h3>Smart Coolant Monitoring System</h3>
+              <p class="muted">An IoT-based real-time coolant monitoring system built using ESP32 and sensors, with Firebase Realtime Database for cloud storage and a React dashboard for live visualization. A Python Flask backend was used for data processing and control.</p>
+              <div class="chip-row">
+                <span class="chip">ESP32</span>
+                <span class="chip">Firebase</span>
+                <span class="chip">React</span>
+                <span class="chip">Python Flask</span>
+              </div>
+            </div>
+
+            <div class="card project-card">
+              <h3>3rd Eye Technology For Blind People</h3>
+              <p class="muted">An assistive system that uses face recognition and voice interaction to help visually impaired users identify known individuals. The solution integrates Python, OpenCV, face recognition, and pyttsx3.</p>
+              <div class="chip-row">
+                <span class="chip">Python</span>
+                <span class="chip">OpenCV</span>
+                <span class="chip">Face Recognition</span>
+                <span class="chip">pyttsx3</span>
+              </div>
+            </div>
+
+            <div class="card project-card">
+              <h3>Periodic Mosquito Repellent Circuit</h3>
+              <p class="muted">A timer-based circuit designed to switch a mosquito repellent ON/OFF periodically without using a microcontroller, focusing on energy-saving automation.</p>
+              <div class="chip-row">
+                <span class="chip">IC 555 Timer</span>
+                <span class="chip">Transistors</span>
+                <span class="chip">Relays</span>
+              </div>
+            </div>
+
+            <div class="card project-card">
+              <h3>Academic & Innovation Exposure</h3>
+              <p class="muted">Participated in the AI Hackathon organized by the IT Association of Kongu Engineering College and was shortlisted for the ThingQbator Innovation Program by NASSCOM Foundation.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="achievements">
+        <div class="container">
+          <div class="section-title">
+            <h2>Achievements & Activities</h2>
+          </div>
+          <div class="grid-2">
+            <div class="card">
+              <ul class="muted">
+                <li>Secured 4th place in Sakthi Hackathon 1.0 organized by Sakthi Group of Industries</li>
+                <li>Secured Special Prize in Techno Fest THIRAN at Sri Eshwar College of Engineering</li>
+                <li>Shortlisted for ThingQbator Innovation Program by NASSCOM Foundation</li>
+                <li>Participated in AI Hackathon organized by IT Association of Kongu Engineering College</li>
+              </ul>
+            </div>
+            <div class="card">
+              <ul class="muted">
+                <li>Compered ENTHUSIA’24 cultural fest, 40th Graduation Day, and Ruby Jubilee Celebration at Kongu Engineering College</li>
+                <li>Executive Member of ECE Association and Self Development Club</li>
+                <li>Member of IETE</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="interests">
+        <div class="container">
+          <div class="section-title">
+            <h2>🚀 Areas of Interest</h2>
+          </div>
+          <div class="interest-grid">
+            <div class="card interest-card">
+              <h3>Embedded Firmware Development</h3>
+              <p class="muted">Interested in building reliable firmware solutions that connect hardware with real-world performance needs.</p>
+            </div>
+            <div class="card interest-card">
+              <h3>IoT Sensor Integration</h3>
+              <p class="muted">Focused on designing connected systems that collect, transmit, and process sensor data efficiently.</p>
+            </div>
+            <div class="card interest-card">
+              <h3>Edge AI for Real-Time Systems</h3>
+              <p class="muted">Exploring intelligent, low-latency applications that bring AI closer to embedded and sensing environments.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="certifications">
+        <div class="container">
+          <div class="section-title">
+            <h2>Certifications</h2>
+          </div>
+          <div class="card">
+            <ul class="muted">
+              <li>Oracle Foundation Associate</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container">
+          <div class="card">
+            <div class="contact-box">
+              <div>
+                <h2 style="margin: 0 0 8px;">📩 Let’s connect</h2>
+                <p class="muted" style="margin: 0;">Open to opportunities, internships, and collaborations in embedded systems, IoT, and technology-focused roles.</p>
+              </div>
+              <div class="contact-links">
+                <a href="mailto:mharini.23ece@kongu.edu">Email</a>
+                <a href="https://www.linkedin.com/in/harini-mohanambal" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a href="https://github.com/harinimohanambal-git" target="_blank" rel="noreferrer">GitHub</a>
+              </div>
+            </div>
+            <div class="contact-list">
+              <div><strong>Phone:</strong> <a href="tel:7418036872">7418036872</a></div>
+              <div><strong>Email:</strong> <a href="mailto:mharini.23ece@kongu.edu">mharini.23ece@kongu.edu</a></div>
+              <div><strong>Location:</strong> Tiruppur, Tamil Nadu</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>© <span id="year"></span> Harini M. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

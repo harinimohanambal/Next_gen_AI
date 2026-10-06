@@ -1,0 +1,30 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" rx="200" fill="url(#bg)"/>
+  <circle cx="200" cy="200" r="188" fill="url(#ring)" fill-opacity="0.2"/>
+  <path d="M127 314C127 263.115 158.115 232 209 232H221C271.885 232 303 263.115 303 314V325H127V314Z" fill="#0F172A"/>
+  <path d="M146 143C146 94.0264 181.026 59 230 59H238C286.974 59 322 94.0264 322 143V161C322 209.974 286.974 245 238 245H230C181.026 245 146 209.974 146 161V143Z" fill="#1E293B"/>
+  <path d="M142 149C142 95.7715 182.771 55 236 55H242C295.229 55 336 95.7715 336 149V159C336 212.229 295.229 253 242 253H236C182.771 253 142 212.229 142 159V149Z" fill="#0F172A"/>
+  <path d="M155 127C155 86.0264 186.026 55 227 55H248C288.974 55 320 86.0264 320 127V149C320 189.974 288.974 221 248 221H227C186.026 221 155 189.974 155 149V127Z" fill="#2D1B0F"/>
+  <path d="M182 111C182 75.6538 209.654 48 245 48H257C292.346 48 320 75.6538 320 111V132C320 167.346 292.346 195 257 195H245C209.654 195 182 167.346 182 132V111Z" fill="#4B2D1F"/>
+  <path d="M157 146C157 111.817 183.817 85 218 85H232C266.183 85 293 111.817 293 146V166C293 200.183 266.183 227 232 227H218C183.817 227 157 200.183 157 166V146Z" fill="#6D4A2F"/>
+  <ellipse cx="208" cy="153" rx="26" ry="39" fill="#F2C7A1"/>
+  <ellipse cx="243" cy="153" rx="26" ry="39" fill="#F2C7A1"/>
+  <path d="M188 173C188 144.281 211.281 121 240 121H248C276.719 121 300 144.281 300 173V179H188V173Z" fill="#F2C7A1"/>
+  <path d="M180 166C180 100.771 228.771 52 294 52C280.74 92.1297 271.493 117.831 259.5 139.5C247.507 161.169 235.212 177.967 222.5 190.5C209.788 203.033 197.336 214.39 181 225L180 166Z" fill="#0F172A"/>
+  <path d="M219 279C230.024 264.309 237.876 256.742 250 248C264.212 239.142 280.61 232.883 307 232C286.206 251.193 272.112 267.817 263.5 283.5C259.233 291.901 255.74 298.489 252.5 308H219V279Z" fill="#0F172A"/>
+  <circle cx="206" cy="154" r="6" fill="#111827"/>
+  <circle cx="242" cy="154" r="6" fill="#111827"/>
+  <path d="M205 191C214.5 199.5 229 203 242 191" stroke="#8B5E3C" stroke-width="7" stroke-linecap="round"/>
+  <path d="M183 87C166.695 108.877 150.54 125.363 135 140" stroke="#E2E8F0" stroke-opacity="0.55" stroke-width="8" stroke-linecap="round"/>
+  <path d="M281 87C291.5 97.5 300 114 306.5 132.5" stroke="#E2E8F0" stroke-opacity="0.55" stroke-width="8" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="bg" x1="40" y1="40" x2="360" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6EE7F9"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="200" y1="12" x2="200" y2="388" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F8FAFC"/>
+    </linearGradient>
+  </defs>
+</svg>
